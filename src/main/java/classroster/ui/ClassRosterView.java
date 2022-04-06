@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package classroster.ui;
 
 import classroster.dto.Student;
@@ -34,7 +30,7 @@ public class ClassRosterView {
         String studentId = io.readString("Please enter Student ID");
         String firstName = io.readString("Please enter First Name");
         String lastName = io.readString("Please enter Last Name");
-        Double [] quiz = io.readDouble("Please enter Quiz scores"); //TODO: NEEDS TO BE FIXED
+        List<Double> quiz = io.readQuizGrades("Please enter Quiz scores"); 
         Student currentStudent = new Student(studentId);
         currentStudent.setFirstName(firstName);
         currentStudent.setLastName(lastName);
@@ -78,7 +74,7 @@ public class ClassRosterView {
         if (student != null) {
             io.print(student.getStudentId());
             io.print(student.getFirstName() + " " + student.getLastName());
-            io.print(student.getCohort());
+           // io.print(student.getQuiz());
             io.print("");
         } else {
             io.print("No such student.");

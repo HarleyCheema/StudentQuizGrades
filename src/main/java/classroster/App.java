@@ -1,5 +1,12 @@
 package classroster;
 
+import classroster.controller.ClassRosterController;
+import classroster.dao.ClassRosterDao;
+import classroster.dao.ClassRosterDaoFileImpl;
+import classroster.ui.ClassRosterView;
+import classroster.ui.UserIO;
+import classroster.ui.UserIOConsoleImpl;
+
 /**
  *
  * @author harle
@@ -7,6 +14,10 @@ package classroster;
 public class App {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        UserIO myIo = new UserIOConsoleImpl();
+        ClassRosterView myView = new ClassRosterView(myIo);
+        ClassRosterDao myDao = new ClassRosterDaoFileImpl();
+        ClassRosterController controller = new ClassRosterController(myDao, myView);
+        controller.run();
     }
 }
